@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/brython@3.8.10/brython.min.js">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/brython@3.8.10/brython_stdlib.js">
+    </script>
+    <script type="text/python" src="./memos.py"></script>
+    <script type="text/python" src="./hello.py"></script>
+</head>
+
+<body onload="brython()">
+
+<script type="text/python">
+			
+            from browser import document, alert
+            from browser import document
+            from browser.template import Template
+            from hello import sayHi, getFullName
+            from memos import ping
+
+            def pingIP(event):
+                ipAddress = document["ipAdrs"].value
+                pingResponse = ping(ipAddress)
+                alert(pingResponse)
+                document <= myFullName
+
+            document["pingBtn"].bind("click", pingIP)
+            Template(document["pingResponse"]).render(pingResponse=document)
+			
+            def showMyFullName(event):
+                myFirstName = document["fname"].value
+                myLastName = document["lname"].value
+                myFullName = getFullName(myFirstName, myLastName)
+                document <= myFullName
+
+            document["nameBtn"].bind("click", showMyFullName)
+            Template(document["fullName"]).render(fullName=document)
+
+
+</script>
+<div id="d1">
+    <table>
+        <tr>
+            <td>Enter First Name:</td>
+            <td><input type="text" name="firstName" id="fname"></td>
+        </tr>
+        <tr>
+            <td>Enter Surname:</td>
+            <td><input type="text" name="lastName" id="lname"></td>
+        </tr>
+        <tr>
+            <td/>
+            <td>
+                <button id="nameBtn">Show My Name</button>
+            </td>
+            <td><span id="fullName">{fullName}</span></td>
+        </tr>
+    </table>
+</div>
+<div id="d2"></div>
+<div id="d3">
+    <table>
+        <tr>
+            <td>Enter IP address:</td>
+            <td><input type="text" name="ipAdrs" id="ipAdrs"></td>
+            <td>
+                <button id="pingBtn">Ping</button>
+            </td>
+            <td><span id="pingResponse">Are you able to ping (Ans: True / False): {pingResponse}</span></td>
+        </tr>
+    </table>
+</div>
+</body>
+
+</html>

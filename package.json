@@ -1,0 +1,12 @@
+{
+  "name": "test-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts":{
+	"start":"light-server -s . -p 7000"
+  },
+  "dependencies": {
+    "light-server": "^2.8.0"
+  }
+}
